@@ -1,0 +1,19 @@
+Summary of the Biquadris Project
+The Biquadris project involved designing and implementing a Tetris-inspired game with a focus on modularity, efficiency, and user experience. The main function initializes the game environment and manages the game loop. Player turns are handled by the handlePlayerTurn function, which processes user inputs and updates the game state. The Xwindow class encapsulates the graphical interface using the X11 library, providing visual representation of the game board and blocks. Core game logic is managed by the Board and Block classes, while different gameplay complexities are achieved through subclasses of BlockFactory. Smart pointers and vectors handle memory management, ensuring efficient resource utilization and preventing memory leaks. The design promotes code reuse, readability, and maintainability, facilitating the development and enhancement of the game.
+
+Throughout development, challenges such as implementing smooth game mechanics, efficient graphical rendering, and robust error handling were encountered and addressed through a systematic, object-oriented design approach. The system is designed to accommodate future enhancements with minimal recompilation by employing flexible class hierarchies and modular components.
+
+Design:
+The initial design incorporated complex patterns like the Observer and Decorator patterns, which were later simplified to reduce complexity. The final design retained the Factory Method pattern and introduced the Xwindow class to handle graphics display directly. High cohesion and low coupling were prioritized, ensuring each module had a single responsibility and minimal interdependencies. Enhancements like the 'blind' state and tracking the next block were integrated directly into the Board class for better organization and functionality. The design was refined by relocating special features like 'Heavy' and 'Blind' to their appropriate classes, simplifying the overall structure and reducing complexity.
+
+Resilience to Change:
+The project was designed for adaptability, using the Factory Method pattern to introduce new game elements without disrupting existing code. The modular structure allows for isolated changes or additions to specific game components. Abstraction and encapsulation principles enable independent evolution of system components, ensuring minimal disruption when introducing or modifying features. The design's flexibility accommodates future enhancements or modifications, maintaining the system's robustness and functionality.
+
+Answers to Questions:
+
+[Blocks]: Implemented an expiration counter for blocks, decrementing each turn and removing blocks when the counter reached zero. This feature was confined to more advanced levels using the Factory Design pattern.
+[Next Block]: Used the Factory Method pattern to introduce new levels with minimal recompilation. Each level class contains specific block generation logic, allowing for seamless integration of new levels.
+[Special Actions]: Managed multiple effects without the Decorator pattern by applying effects independently, resolving conflicts programmatically. Future expansions are simplified by implementing new effect-handling mechanisms.
+[Command Interpreter]: Maintained a command registry to dynamically update command mappings. Supported command renaming and macro language for command sequences. Ensured efficient board redrawing after commands, minimizing the impact on the system.
+Extra Credit Features:
+Used smart pointers (std::unique_ptr, std::shared_ptr) and STL containers (std::vector, std::map, std::unordered_map) for efficient memory management. This approach reduced the risk of memory leaks and manual memory management complexities, enhancing the program's robustness and reliability.
