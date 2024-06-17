@@ -1,4 +1,4 @@
-# Tetris-Biquadris
+# Biquadris
 
 <strong>Project: Biquadris Game</strong>
 
